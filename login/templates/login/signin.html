@@ -6,43 +6,44 @@
 {% endblock %}
 
 {% block form %}
-
-<!-- 2 column grid layout with text inputs for the first and last names -->
-<div class="row mb-4 mt-5">
-    <div class="col-md-6 mb-4">
-        <label for="form3Example1" class="form-label">First name</label>
-        <input type="text" name="name" id="form3Example1" class="form-control border-0" style="background-color: #333; color: #fff;" />
+<form method="POST" action="{% url 'signin_page' %}">
+    {% csrf_token %}
+    <!-- 2 column grid layout with text inputs for the first and last names -->
+    <div class="row mb-1 mt-5">
+        <div class="col-md-6 mb-4">
+            <label for="form3Example1" class="form-label">First name</label>
+            <input type="text" name="name" id="form3Example1" class="form-control border-0" style="background-color: #333; color: #fff;" />
+        </div>
+        <div class="col-md-6">
+            <label for="form3Example2" class="form-label">Last name</label>
+            <input type="text" name="f_name" id="form3Example2" class="form-control border-0" style="background-color: #333; color: #fff;" />
+        </div>
     </div>
-    <div class="col-md-6">
-        <label for="form3Example2" class="form-label">Last name</label>
-        <input type="text" name="f_name" id="form3Example2" class="form-control border-0" style="background-color: #333; color: #fff;" />
+
+    <!-- Email input -->
+
+    <div class="mb-4 ">
+        <label for="form3Example3" class="form-label">Username</label>
+        <input type="text" name="username" id="form3Example3" class="form-control border-0" style="background-color: #333; color: #fff;" />
     </div>
-</div>
+    <div class="mb-4 ">
+        <label for="form3Example3" class="form-label">Email address</label>
+        <input type="email" name="email" id="form3Example3" class="form-control border-0" style="background-color: #333; color: #fff;" />
+    </div>
 
-<!-- Email input -->
+    <!-- Password input -->
+    <div class="mb-5">
+        <label for="form3Example4" class="form-label">Password</label>
+        <input type="password" name="password" id="form3Example4" class="form-control border-0" style="background-color: #333; color: #fff;" />
+    </div>
 
-<div class="mb-4 ">
-    <label for="form3Example3" class="form-label">Username</label>
-    <input type="text" name="username" id="form3Example3" class="form-control border-0" style="background-color: #333; color: #fff;" />
-</div>
-<div class="mb-4 ">
-    <label for="form3Example3" class="form-label">Email address</label>
-    <input type="email" name="email" id="form3Example3" class="form-control border-0" style="background-color: #333; color: #fff;" />
-</div>
+    <button type="submit" class="btn btn-primary btn-block mb-4 w-25" style="background-color: #007bff; border-color: #007bff;">
+        Join
+    </button>
 
-<!-- Password input -->
-<div class="mb-5">
-    <label for="form3Example4" class="form-label">Password</label>
-    <input type="password" name="password" id="form3Example4" class="form-control border-0" style="background-color: #333; color: #fff;" />
-</div>
-
-<button type="submit" class="btn btn-primary btn-block mb-4 w-100" style="background-color: #007bff; border-color: #007bff;">
-    Join
-</button>
-
-<div class="border-top pt-3">
-    <small>Already a member? <a class="ml-2" href="{% url 'login_page' %}">Login</a> </small>
-</div>
-
+    <div class="border-top pt-3">
+        <small>Already a member? <a class="ml-2" href="{% url 'login_page' %}">Login</a> </small>
+    </div>
+</form>
 
 {% endblock %}
