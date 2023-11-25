@@ -21,7 +21,7 @@
                     <div class="col-lg-6 mb-5 mb-lg-0">
                         <h1 class="my-5 display-3 fw-bold ls-tight">
                             CSEC-ASTU <br />
-                            <span class="text-secondary">DEVELOPMENT DIVIDION</span>
+                            <span class="text-primary">DEVELOPMENT DIVIDION</span>
                         </h1>
                         <p style="color: hsl(217, 10%, 50.8%)">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -34,14 +34,15 @@
                     <div class="col-lg-6 mb-5 mb-lg-0">
                         <div class="card bg-dark text-white">
                             <div class="card-body py-5 px-md-5 text-start">
-                                {% if messsages %}
+                                {% if messages %}
                                 {% for message in messages %}
-                                <div class="alert alert-{{ message.tags }}">
-                                    {{ message }}
-                                </div>
+                                <div {% if message.tags %} class="alert alert-{{ message.tags }}" {% endif %}>{{ message }}</div>
                                 {% endfor %}
                                 {% endif %}
-                                <h2>Login</h2>
+                                <!-- <div class="alert alert-danger">
+                                    successfully registred
+                                </div>
+                                <h2>Login</h2> -->
 
                                 <form method="POST" action="{% url 'signin_page' %}">
                                     {% csrf_token %}

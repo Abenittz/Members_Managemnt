@@ -20,13 +20,13 @@ def signin(request):
         if User.objects.filter(username=username, email=email).exists():
             messages.error(request, "Username or email already exists.")
             return redirect('signin_page')  # Use 'return' to make sure the redirect happens
-        
+        else:
         # Create and save the user
-        user = User(name=name, f_name=f_name, email=email, username=username, password=password)
-        user.save()
+            user = User(name=name, f_name=f_name, email=email, username=username, password=password)
+            user.save()
         
-        messages.success(request, "Registered successfully for {username}.")
-        return redirect('login_page')  # Use 'return' to make sure the redirect happens
+            messages.success(request, "Registered successfully for {username}.")
+            return redirect('login_page')  # Use 'return' to make sure the redirect happens
             
     return render(request, 'login/signin.html')
 
