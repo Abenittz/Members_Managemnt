@@ -1,0 +1,30 @@
+{% extends 'login/base.html' %}
+{% load static %}
+
+{% block css_file %}
+<link rel="stylesheet" href="{% static 'login/login.css' %}">
+{% endblock %}
+
+{% block form %}
+
+<!-- Username input -->
+<div class="mb-4 mt-5">
+    <label for="form3Example3" class="form-label">Username</label>
+    <input type="text" id="form3Example3" class="form-control border-0" style="background-color: #333; color: #fff;" />
+</div>
+
+<!-- Password input -->
+<div class="mb-5">
+    <label for="form3Example4" class="form-label">Password</label>
+    <input type="password" id="form3Example4" class="form-control border-0" style="background-color: #333; color: #fff;" />
+</div>
+
+<button type="submit" class="btn btn-primary btn-block mb-4 w-100" style="background-color: #007bff; border-color: #007bff;">
+    Login
+</button>
+
+<div class="border-top pt-3">
+    <small>Already a member? <a class="ml-2" href="{% url 'signin_page' %}">Sign up</a> </small>
+</div>
+
+{% endblock %}
