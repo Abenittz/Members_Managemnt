@@ -1,4 +1,5 @@
 {% extends 'login/base.html' %}
+{% load crispy_forms_tags %}
 {% load static %}
 
 {% block css_file %}
@@ -6,20 +7,11 @@
 {% endblock %}
 
 {% block form %}
-
+<h2>LOGIN</h2>
 <form method="POST" action="{% url 'login_page' %}">
     {% csrf_token %}
     <!-- Username input -->
-    <div class="mb-4 mt-5">
-        <label for="form3Example3" class="form-label">Username</label>
-        <input type="text" name="username" id="form3Example3" class="form-control border-0" style="background-color: #333; color: #fff;" />
-    </div>
-
-    <!-- Password input -->
-    <div class="mb-5">
-        <label for="form3Example4" class="form-label">Password</label>
-        <input type="password" name="password" id="form3Example4" class="form-control border-0" style="background-color: #333; color: #fff;" />
-    </div>
+    {{ form|crispy }}
 
     <button type="submit" class="btn btn-primary btn-block mb-4 w-25" style="background-color: #007bff; border-color: #007bff;">
         Login
