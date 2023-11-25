@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import Members
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.backends import ModelBackend
 
 def signin(request):
     if request.method == 'POST':
@@ -31,6 +32,17 @@ def signin(request):
             
     return render(request, 'login/signin.html')
 
+class MembersBackend(ModelBackend):
+    def authenticate(self, request, username=None, password=None, **kwargs):
+        try:
+            user =Members.objects.get(username=username)
+        except Members.DoesNotExist:
+            return None
+        
+        if user.check_password(password):
+            return user
+        return None
+
         
 def custom_login(request):
     if request.method == 'POST':
@@ -42,24 +54,14 @@ def custom_login(request):
             return redirect('login_page')
 
         # Authenticate against the Members model
-        try:
-            user = Members.objects.get(username=username, password=password)
-        except Members.DoesNotExist:
-            user = None
+        user = authenticate(request, username=username, password=password)
 
         if user is not None:
-            # Create a user object that can be used for login
-            user_for_login = authenticate(request, username=username, password=password)
-
-            if user_for_login is not None:
-                login(request, user_for_login)
-                messages.success(request, 'Login successful.')
-                return redirect('signin_page')  # Redirect to your home page
-            else:
-                messages.error(request, 'Error during authentication.')
+           
+            login(request, user)
+            messages.success(request, 'Login successful.')
+            return redirect('signin_page')  # Redirect to your home page
         else:
             messages.error(request, 'Invalid username or password.')
-
-        return redirect('login_page')
-
+            
     return render(request, 'login/login.html')
