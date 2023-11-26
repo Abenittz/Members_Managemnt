@@ -6,20 +6,23 @@
 <link rel="stylesheet" href="{% static 'login/login.css' %}">
 {% endblock %}
 
-{% block form %}
-<h2>LOGIN</h2>
-<form method="POST" action="{% url 'login_page' %}">
-    {% csrf_token %}
-    <!-- Username input -->
-    {{ form|crispy }}
+{% block content %}
+<div class="card bg-dark text-white">
+    <div class="card-body py-5 px-md-5 text-start">
+        <h2 style="margin-bottom: 20px;">LOGIN</h2>
+        <form method="POST" action="{% url 'login_page' %}">
+            {% csrf_token %}
+            {{ form|crispy }}
 
-    <button type="submit" class="btn btn-primary btn-block mb-4 w-25" style="background-color: #007bff; border-color: #007bff;">
-        Login
-    </button>
+            <button type="submit" class="btn btn-primary btn-block mb-4 w-25" style="background-color: #007bff; border-color: #007bff;">
+                Login
+            </button>
 
-    <div class="border-top pt-3">
-        <small>Already a member? <a class="ml-2" href="{% url 'signin_page' %}">Sign up</a> </small>
+            <div class="border-top pt-3">
+                <small>if you are not a member <a class="ml-2" href="{% url 'signin_page' %}">Sign up</a> </small>
+            </div>
+
+        </form>
     </div>
-
-</form>
+</div>
 {% endblock %}

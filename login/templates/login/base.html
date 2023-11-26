@@ -11,11 +11,22 @@
 </head>
 
 <body style="background-color: #121212; color: #fff;">
-    <nav class="navbar" style="background-color: #111111; color: white;">
+    <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #000;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="upload/images/csec_logo.jpg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
-            </a>
+            <a class="navbar-brand ml-2" href="">CSEC-ASTU</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'signin_page' %}">Sign In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'login_page' %}" class="btn btn-dark" style="min-width: 70px;">Login</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
     <!-- Section: Design Block -->
@@ -45,13 +56,9 @@
                         </div>
                         {% endfor %}
                         {% endif %}
-                        <div class="card bg-dark text-white">
-                            <div class="card-body py-5 px-md-5 text-start">
 
-                                {% block form %}{% endblock %}
+                        {% block content %}{% endblock %}
 
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
