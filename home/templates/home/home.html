@@ -9,26 +9,21 @@
 <div class="container mt-5">
 
     {% for post in posts %}
-    <!-- <div class="card mb-3">
-        <div class="card-body">
-            <h5 class="card-title">{{ post.title }}</h5>
-            <p class="card-text">{{ post.content }}</p>
-            <p class="card-text"><strong>Organizer:</strong> {{ post.organizer.username }}</p>
-        </div>
-    </div> -->
+
 
     <div class="d-flex mb-3">
         <img class="rounded-circle shadow-1-strong me-3 " src="{{ user.profile.image.url }}" alt="avatar" width="65" height="65" />
         <div class="card w-100  text-light" style="background-color: #333;">
             <div class="card-body p-4">
                 <div class="">
-                    <h5>{{ post.organizer.username }}</h5>
+
+                    <h5>{{ post.title }}</h5>
                     <p class="small">{{ post.date_posted }}</p>
                     <p>
                         {{ post.content }}
                     </p>
-
-
+                    <hr>
+                    <p class="text-light">{{ post.organizer.username }}</p>
                 </div>
             </div>
         </div>
@@ -75,3 +70,5 @@
 
 
 {% endblock %}
+
+Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum nam fugiat ducimus ea quas nostrum iste eaque quos ullam, labore error, magnam voluptatem totam dicta. Quisquam fugit ab voluptatibus fuga!
