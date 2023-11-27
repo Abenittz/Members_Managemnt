@@ -1,0 +1,10 @@
+textarea {
+    background-color: #333;
+
+    color: #fff;
+
+    resize: none;
+
+    height: 4rem;
+    width: 100%;
+}

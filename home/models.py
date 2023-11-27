@@ -1,10 +1,11 @@
-# models.py
+
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 class Member(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    # Add any additional fields for members if needed
+    
 
     def __str__(self):
         return self.user.username
@@ -12,6 +13,7 @@ class Member(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
+    date_posted = models.DateTimeField(default=timezone.now)
     organizer = models.ForeignKey(User, on_delete=models.CASCADE)
     comments = models.ManyToManyField(Member, through='Comment')
 

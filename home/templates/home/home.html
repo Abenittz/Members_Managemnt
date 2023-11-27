@@ -1,5 +1,10 @@
 {% extends 'home/base.html' %}
+{% load static %}
+
 {% load crispy_forms_tags %}
+{% block css_file %}
+<link rel="stylesheet" href="{% static 'home/home.css' %}">
+{% endblock %}
 {% block content %}
 <div class="container mt-5">
 
@@ -12,7 +17,7 @@
         </div>
     </div> -->
 
-    <div class=" mb-5">
+    <div class="d-flex mb-3">
         <img class="rounded-circle shadow-1-strong me-3 " src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(32).webp" alt="avatar" width="65" height="65" />
         <div class="card w-100  text-light" style="background-color: #333;">
             <div class="card-body p-4">
@@ -34,24 +39,18 @@
             </div>
         </div>
 
-
-        <form method="post" action="{% url 'add_comment' post.id %}">
-            {% csrf_token %}
-            <div class="card-footer h-10 border-0" style="background-color: #f8f9fa;">
-                <div class="d-flex flex-start w-100">
-                    <div class="form-outline w-100">
-                        {{ comment_form|crispy }}
-
-                    </div>
-                </div>
-                <div class="float-end mt-2 pt-1">
-                    <button type="button" class="btn btn-primary btn-sm">Post comment</button>
-
-                </div>
-            </div>
-
-        </form>
     </div>
+
+    <form method="post" action="{% url 'add_comment' post.id %}">
+        {% csrf_token %}
+        <div class="card-footer h-10 border-0" style="background-color: #333;">
+            {{ comment_form|crispy }}
+            <div class="float-end mt-2 pt-1">
+                <button type="submit" class="btn btn-primary btn-sm">Post comment</button>
+
+            </div>
+        </div>
+    </form>
 
 
     {% for comment in post.comment_set.all %}
@@ -76,8 +75,9 @@
 
 
 
-    <hr>
+
     {% endfor %}
 </div>
 
+<hr>
 {% endblock %}

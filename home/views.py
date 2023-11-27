@@ -1,5 +1,4 @@
-# views.py
-# yourapp/views.py
+
 from django.shortcuts import render, redirect
 from .models import Post, Comment
 from .forms import PostForm, CommentForm
@@ -42,6 +41,6 @@ def add_comment(request, post_id):
         if form.is_valid():
             comment = form.save(commit=False)
             comment.post = post
-            comment.member = request.user.member  # Assuming you have a Member profile for each user
+            comment.member = request.user.member 
             comment.save()
     return redirect('home_page')
