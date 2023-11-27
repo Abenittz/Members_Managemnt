@@ -18,7 +18,7 @@
     </div> -->
 
     <div class="d-flex mb-3">
-        <img class="rounded-circle shadow-1-strong me-3 " src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(32).webp" alt="avatar" width="65" height="65" />
+        <img class="rounded-circle shadow-1-strong me-3 " src="{{ user.profile.image.url }}" alt="avatar" width="65" height="65" />
         <div class="card w-100  text-light" style="background-color: #333;">
             <div class="card-body p-4">
                 <div class="">
@@ -43,20 +43,20 @@
 
     <form method="post" action="{% url 'add_comment' post.id %}">
         {% csrf_token %}
-        <div class="card-footer h-10 border-0" style="background-color: #333;">
+        <div class="card-footer h-1 border-0" style="background-color: #333;">
             {{ comment_form|crispy }}
-            <div class="float-end mt-2 pt-1">
-                <button type="submit" class="btn btn-primary btn-sm">Post comment</button>
 
-            </div>
+            <button type="submit" class="btn btn-primary btn-sm">Post comment</button>
+
+
         </div>
     </form>
 
 
     {% for comment in post.comment_set.all %}
-    <div class="d-flex flex-start mt-4 ml-6">
+    <div class="d-flex flex-start mt-4 ml-6 mb-3">
         <a class="me-3" href="#">
-            <img class="rounded-circle shadow-1-strong" src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(11).webp" alt="avatar" width="65" height="65" />
+            <img class="rounded-circle shadow-1-strong" src="default.jpg" alt="avatar" width="40" height="40" />
         </a>
         <div class="flex-grow-1 flex-shrink-1">
             <div>
@@ -74,10 +74,10 @@
     {% endfor %}
 
 
-
+    <hr>
 
     {% endfor %}
 </div>
 
-<hr>
+
 {% endblock %}
