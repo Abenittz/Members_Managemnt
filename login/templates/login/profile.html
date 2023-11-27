@@ -24,9 +24,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'profile' %}">profile</a>
-                    </li>
+
                     <li class="nav-item">
                         <a href="{% url 'logout_page' %}" class="btn btn-dark" style="min-width: 70px;">Log Out</a>
                     </li>
@@ -36,7 +34,7 @@
     </nav>
 
     <main role="main" class="container">
-        <div class="row">
+        <div class="row" style="height: 500px;">
             <div class="col-md-8">
 
                 <div class="content-section">
@@ -53,13 +51,13 @@
             </div>
             <div class="col-md-4 mt-4">
                 <div class="content-section">
-                    <h3>Our Sidebar</h3>
-                    <p class='text-muted'>You can put any information here you'd like.
+                    <h3>Events</h3>
+                    <p class=''>
                     <ul class="list-group">
-                        <li class="list-group-item list-group-item-light">Latest Posts</li>
-                        <li class="list-group-item list-group-item-light">Announcements</li>
-                        <li class="list-group-item list-group-item-light">Calendars</li>
-                        <li class="list-group-item list-group-item-light">etc</li>
+                        <li class="list-group-item list-group-item-dark">Latest Posts</li>
+                        <li class="list-group-item list-group-item-dark">Announcements</li>
+                        <li class="list-group-item list-group-item-dark">Calendars</li>
+                        <li class="list-group-item list-group-item-dark">etc</li>
                     </ul>
                     </p>
                 </div>
@@ -67,19 +65,19 @@
         </div>
     </main>
 
-    <footer class="footer-dark text-center text-light">
-        <!-- Grid container -->
+    <footer class="footer-dark text-center text-light" style="background-color: #111;">
+
         <div class="container p-4 pb-0 mb-0">
 
         </div>
-        <!-- Grid container -->
 
-        <!-- Copyright -->
-        <div class="text-center p-3 text-black" style="background-color: rgba(255, 255, 255, 0.05); color: white;">
+
+
+        <div class="text-center p-3 text-bg-secondary" style="background-color: rgba(0, 0, 0, 0.05); ">
             © 2020 Copyright:
-            <a class="text-body" href="">CSEC-ASTU Development Division</a>
+            <a class="text-body" href="" style="color: beige;">CSEC-ASTU Development Division</a>
         </div>
-        <!-- Copyright -->
+
     </footer>
 
 

@@ -2,7 +2,9 @@
 from django.shortcuts import render, redirect
 from .models import Post, Comment
 from .forms import PostForm, CommentForm
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def organizer(request):
     if request.method == 'POST':
         form = PostForm(request.POST)
@@ -15,6 +17,7 @@ def organizer(request):
         form = PostForm()
     return render(request, 'home/organizer.html', {'form': form})
 
+@login_required
 def home(request):
     posts = Post.objects.all()
     comment_form = CommentForm()
