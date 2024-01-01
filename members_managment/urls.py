@@ -23,7 +23,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-   path('profile/', login_views.profile, name='profile'),
+    path('profile/', login_views.profile, name='profile'),
     path('login/', auth_views.LoginView.as_view(template_name='login/login.html'), name='login_page'),
     path('logout/', auth_views.LogoutView.as_view(template_name='login/logout.html'), name='logout_page'),
     path('', include('login.urls')),

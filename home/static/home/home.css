@@ -8,3 +8,9 @@ textarea {
     height: 4rem;
     width: 100%;
 }
+
+.table {
+    background-color: #333;
+    color: white;
+
+}

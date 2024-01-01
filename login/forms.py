@@ -23,8 +23,10 @@ class LoginForm(forms.Form):
     
     username = forms.CharField(
         max_length=30, 
-        widget=forms.TextInput(attrs={'class': 'form-control', 'style': 'margin-bottom: 20px; background-color: #333; border: none; color: white;'})
+        widget=forms.TextInput(attrs={'class': 'form-control'})
     )
     password = forms.CharField(
-        widget=forms.PasswordInput(attrs={'class': 'form-control', 'style': 'margin-bottom: 20px; background-color: #333; border: none; color: white;'})
+        widget=forms.PasswordInput(attrs={'class': 'form-control'})
     )
+    
+  

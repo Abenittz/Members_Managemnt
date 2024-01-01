@@ -2,16 +2,6 @@
 from django import forms
 from .models import Post, Comment
 
-class DarkInput(forms.widgets.Input):
-    def __init__(self, *args, **kwargs):
-        kwargs.setdefault('attrs', {}).update({'class': 'dark-input'})
-        super(DarkInput, self).__init__(*args, **kwargs)
-
-class DarkTextarea(forms.widgets.Textarea):
-    def __init__(self, *args, **kwargs):
-        kwargs.setdefault('attrs', {}).update({'class': 'dark-textarea'})
-        super(DarkTextarea, self).__init__(*args, **kwargs)
-
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post

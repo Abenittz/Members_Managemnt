@@ -39,22 +39,8 @@
 
     <main role="main" class="container">
         <div class="row">
-            <div class="col-md-8">
-                {% block content %}{% endblock %}
-            </div>
-            <div class="col-md-4 mt-4">
-                <div class="content-section">
-                    <h3>Events</h3>
-                    <p class=''>
-                    <ul class="list-group">
-                        <li class="list-group-item list-group-item-dark">Latest Posts</li>
-                        <li class="list-group-item list-group-item-dark">Announcements</li>
-                        <li class="list-group-item list-group-item-dark">Calendars</li>
-                        <li class="list-group-item list-group-item-dark">Csec-Astu</li>
-                    </ul>
-                    </p>
-                </div>
-            </div>
+            {% block content %}{% endblock %}
+
         </div>
     </main>
 
